@@ -31,6 +31,7 @@ function speakPinyin(pinyin) {
 
 function selectMode(selectedMode) {
 	mode = selectedMode;
+	if (mode === "p") alert(`Try saying the sounds out loud!`);
 	document.getElementById("menu").classList.add("hidden");
 	document.getElementById("scopeMenu").classList.remove("hidden");
 }
@@ -166,6 +167,7 @@ function endGame() {
 	document.getElementById("menu").classList.add("hidden");
 	document.getElementById("scopeMenu").classList.add("hidden");
 	document.getElementById("endScore").classList.remove("hidden");
+	document.getElementById("finScoreDisp").textContent = `Your Final Score is: ${score}`;
 }
 
 function finish() {
@@ -186,4 +188,3 @@ document.getElementById("answer").addEventListener("keydown", function (event) {
 document.getElementById("darkModeToggle").addEventListener("change", function () {
 	document.body.classList.toggle("dark", this.checked);
 });
-
