@@ -162,10 +162,17 @@ function submitAnswer() {
 }
 
 function endGame() {
-	alert(`Game Over. Your final score is: ${score}`);
+	document.getElementById("game").classList.add("hidden");
+	document.getElementById("menu").classList.add("hidden");
+	document.getElementById("scopeMenu").classList.add("hidden");
+	document.getElementById("endScore").classList.remove("hidden");
+}
+
+function finish() {
 	document.getElementById("game").classList.add("hidden");
 	document.getElementById("menu").classList.remove("hidden");
 	document.getElementById("scopeMenu").classList.add("hidden");
+	document.getElementById("endScore").classList.add("hidden");
 }
 
 // Event listeners
@@ -179,3 +186,4 @@ document.getElementById("answer").addEventListener("keydown", function (event) {
 document.getElementById("darkModeToggle").addEventListener("change", function () {
 	document.body.classList.toggle("dark", this.checked);
 });
+
