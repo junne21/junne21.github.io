@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mandarin Number Learner</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Mandarin Number Learner</h1>
+
+	<!-- Main Menu -->
+	<div id="menu">
+		<h2>Numbers from 1 – 9</h2>
+		<p>Choose mode:</p>
+		<button onclick="selectMode('p')">Identify Number</button>
+		<button onclick="selectMode('r')">Identify Pinyin</button>
+
+		<div class="dropdown">
+			<h3>Settings</h3>
+			<div class="dropdown-content">
+				<p>
+					<label class="switch-label">
+						<span>Show Chinese characters</span>
+						<label class="switch">
+							<input type="checkbox" id="showCharacter">
+							<span class="slider round"></span>
+						</label>
+					</label>
+				</p>
+				<p>
+					<label class="switch-label">
+						<span>Auto-play audio</span>
+						<label class="switch">
+							<input type="checkbox" id="autoPlayAudio" checked>
+							<span class="slider round"></span>
+						</label>
+					</label>
+				</p>
+				<p>
+					<label class="switch-label">
+						<span>Dark Mode</span>
+						<label class="switch">
+							<input type="checkbox" id="darkModeToggle">
+							<span class="slider round"></span>
+						</label>
+					</label>
+				</p>
+			</div>
+		</div>
+
+		<p>= = = =</p>
+	</div>
+
+	<!-- Scope Menu -->
+	<div id="scopeMenu" class="hidden">
+		<h2>Select Scope:</h2>
+		<button onclick="startGame('easy')">Scaling</button>
+		<button onclick="startGame('hard')">All</button> <br>
+		<button onclick="showCustomScopeInput()">Custom Scope</button>
+	</div>
+
+	<!-- Custom Scope Section -->
+	<div id="customScopeSection" class="hidden">
+		<h3>Enter the numbers you want to practice (e.g., 1, 3, 5):</h3>
+		<input type="text" id="customScopeInput" placeholder="Enter numbers here" />
+		<button onclick="setCustomScope()">Start</button>
+		<button onclick="cancelCustomScope()">Cancel</button>
+	</div>
+
+	<!-- Game Section -->
+	<div id="game" class="hidden">
+		<div id="timerBarContainer"><div id="timerBar"></div></div>
+		<div id="scoreDisplay">Score: 0 (x1)</div>
+		<div id="questionContainer">
+			<div id="question"></div>
+			<button id="replayButton" class="hidden" onclick="replayAudio()">🔊</button>
+		</div>
+		<div id="message"></div>
+		<div id="choice-buttons">
+			<button id="cb0" class="choice-button" onclick="submitAnswer('0')">1</button>
+			<button id="cb1" class="choice-button" onclick="submitAnswer('1')">2</button>
+			<br>
+			<button id="cb2" class="choice-button" onclick="submitAnswer('2')">3</button>
+			<button id="cb3" class="choice-button" onclick="submitAnswer('3')">4</button>
+		</div>
+		<div id="correction-facility" class="">
+			<input type="text" id="answer" placeholder="Your answer">
+			<button onclick="submitAnswer()">Submit</button>
+		</div>
+		<br>
+		<button onclick="endGame()">End</button>
+	</div>
+
+	<!-- Score Display Section -->
+	<div id="endScore" class="hidden">
+		<h2>Game Over!</h2>
+		<p id="finScoreDisp">Your final score is: 0</p>
+		<button onclick="finish()">Continue</button>
+		<div id="message"></div>
+	</div>
+
+	<script src="script.js"></script>
+	<script src="one_to_nine.js"></script>
+</body>
+</html>
